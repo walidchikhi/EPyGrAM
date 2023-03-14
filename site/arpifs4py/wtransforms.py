@@ -11,9 +11,9 @@ from __future__ import print_function, absolute_import, unicode_literals, divisi
 
 import numpy as np
 
-from . import ctypesFF, IN, OUT, treatReturnCode, addReturnCode
+from . import ctypesFT, IN, OUT, treatReturnCode, addReturnCode
 # Note to developers:
-# Using the ctypesFF decorator, the Python function return a tuple containing:
+# Using the ctypesFT decorator, the Python function return a tuple containing:
 #    tup[0]:
 #        [the arguments of the Python function,
 #         to be passed as in/inout arguments to the Fortran subroutine]
@@ -24,7 +24,7 @@ from . import ctypesFF, IN, OUT, treatReturnCode, addReturnCode
 
 
 @treatReturnCode
-@ctypesFF()
+@ctypesFT()
 @addReturnCode
 def w_etrans_inq(KSIZEI, KSIZEJ,
                  KPHYSICALSIZEI, KPHYSICALSIZEJ,
@@ -65,7 +65,7 @@ def w_etrans_inq(KSIZEI, KSIZEJ,
 
 
 @treatReturnCode
-@ctypesFF()
+@ctypesFT()
 @addReturnCode
 def w_trans_inq(KSIZEJ, KTRUNC, KSLOEN, KLOEN, KNUMMAXRESOL):
     """
@@ -96,7 +96,7 @@ def w_trans_inq(KSIZEJ, KTRUNC, KSLOEN, KLOEN, KNUMMAXRESOL):
 
 
 @treatReturnCode
-@ctypesFF()
+@ctypesFT()
 @addReturnCode
 def w_spec2gpt_lam(KSIZEI, KSIZEJ,
                    KPHYSICALSIZEI, KPHYSICALSIZEJ,
@@ -155,7 +155,7 @@ def w_spec2gpt_lam(KSIZEI, KSIZEJ,
 
 
 @treatReturnCode
-@ctypesFF()
+@ctypesFT()
 @addReturnCode
 def w_gpt2spec_lam(KSIZE,
                    KSIZEI, KSIZEJ,
@@ -206,7 +206,7 @@ def w_gpt2spec_lam(KSIZE,
 
 
 @treatReturnCode
-@ctypesFF()
+@ctypesFT()
 @addReturnCode
 def w_spec2gpt_gauss(KSIZEJ,
                      KTRUNC,
@@ -265,7 +265,7 @@ def w_spec2gpt_gauss(KSIZEJ,
 
 
 @treatReturnCode
-@ctypesFF()
+@ctypesFT()
 @addReturnCode
 def w_gpt2spec_gauss(KSPEC,
                      KSIZEJ,
@@ -315,7 +315,7 @@ def w_gpt2spec_gauss(KSPEC,
             None)
 
 
-@ctypesFF()
+@ctypesFT()
 def w_spec2gpt_fft1d(KSIZES, KTRUNC, PSPEC, KSIZEG):
     """
     Transform spectral coefficients into grid-point values,

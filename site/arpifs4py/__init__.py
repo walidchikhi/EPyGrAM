@@ -22,9 +22,9 @@ import numpy as np
 import griberies
 import ctypesForFortran
 
-_libs4py = "libs4py.so"  # local name in the directory
-
-
+#_libs4py = "libs4py.so"  # local name in the directory
+_libs4transf="transforms4py.so" ## for transformation
+_libs4form="falfi4py.so"
 # helpers
 #########
 def addReturnCode(func):
@@ -110,9 +110,19 @@ INOUT = ctypesForFortran.INOUT
 
 # shared objects library
 ########################
+'''
+#shared_objects_library = os.path.join(os.path.dirname(os.path.realpath(__file__)),
+#                                      _libs4py)
+#ctypesFF, handle = ctypesForFortran.ctypesForFortranFactory(shared_objects_library)
+'''
 shared_objects_library = os.path.join(os.path.dirname(os.path.realpath(__file__)),
-                                      _libs4py)
+                                      _libs4form)
 ctypesFF, handle = ctypesForFortran.ctypesForFortranFactory(shared_objects_library)
+
+shared_objects_library = os.path.join(os.path.dirname(os.path.realpath(__file__)),
+                                      _libs4transf)
+ctypesFT, handle = ctypesForFortran.ctypesForFortranFactory(shared_objects_library)
+
 
 
 # sub-modules
