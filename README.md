@@ -5,6 +5,9 @@ __*Enhanced Python for Graphics and Analysis of Meteorological fields*__
 
 ---
 
+# A version where we divided libs4py.so into two libraries to separate formats and spectral transforms handling within EPyGrAM
+
+
 The epygram library package is a set of Python classes and functions designed to handle meteorological fields in Python, as well as interfacing their storage in various usual (or not) data formats.
 
 Dependencies
