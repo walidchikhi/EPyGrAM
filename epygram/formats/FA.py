@@ -783,12 +783,13 @@ class FA(FileResource):
                 data = dataOut
             elif ftype == 'H2D':
                 if config.spectral_coeff_order == 'model':
-                    data, masked, masked_value = numpy.array(wfa.wfacilo(datasize,
+                    data, masked, masked_value = wfa.wfacilo(datasize,
                                                              self._unit,
                                                              fieldname[0:4],
                                                              0,
                                                              fieldname[4:],
-                                                             spectral))
+                                                             spectral)
+                    data = numpy.array(data)
                     if masked:
                         data = numpy.ma.masked_equal(data, masked_value)
                 else:
@@ -1549,6 +1550,31 @@ class FA(FileResource):
         if exist and ftype == '?':
             ftype = 'H2D'  # because fanion fails or answers False for meta-fields
         return ftype
+
+    def _raw_header_get(self):
+        vars_from_facies = ('KTYPTR', 'PSLAPO', 'PCLOPO', 'PSLOPO',
+                            'PCODIL', 'KTRONC',
+                            'KNLATI', 'KNXLON', 'KNLOPA', 'KNOZPA', 'PSINLA',
+                            'KNIVER', 'PREFER', 'PAHYBR', 'PBHYBR')
+        zvars = list(zip(vars_from_facies,
+                         wfa.wfacies(self._FAsoftware_cst['JPXPAH'],
+                                     self._FAsoftware_cst['JPXIND'],
+                                     self._FAsoftware_cst['JPXGEO'],
+                                     self._FAsoftware_cst['JPXNIV'],
+                                     self.headername)[:-1]))
+        return zvars
+
+    def _raw_header_set(self, header_vars):
+        h = header_vars
+        wfa.wfacade(self.headername,
+                h['KTYPTR'], h['PSLAPO'], h['PCLOPO'], h['PSLOPO'],
+                h['PCODIL'], h['KTRONC'],
+                h['KNLATI'], h['KNXLON'],
+                len(h['KNLOPA']), h['KNLOPA'],
+                len(h['KNOZPA']), h['KNOZPA'],
+                len(h['PSINLA']), h['PSINLA'],
+                h['KNIVER'], h['PREFER'], h['PAHYBR'], h['PBHYBR'],
+                True)
 
     def _read_geometry(self):
         """
