@@ -13,7 +13,7 @@ import re
 import six
 import io
 
-import griberies
+from epy_extra import griberies
 from epygram import config, epygramError
 
 
