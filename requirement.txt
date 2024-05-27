@@ -5,5 +5,7 @@ matplotlib
 bronx
 six
 web.py
-
+netCDF4
+eccodes
+h5py
 

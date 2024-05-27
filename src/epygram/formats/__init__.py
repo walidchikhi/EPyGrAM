@@ -50,7 +50,7 @@ def available_format(fmt):
         elif fmt in ('netCDF', 'netCDFMNH'):
             import netCDF4
         elif fmt == 'TIFFMF':
-            import pyexttiff
+            from epy_extra import pyexttiff
         elif fmt == 'HDF5SAF':
             import h5py
     except Exception as e:

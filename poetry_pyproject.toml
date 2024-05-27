@@ -1,0 +1,69 @@
+[tool.poetry]
+name = "epygram"
+version = "0.0.2"
+description = "Bah C'est EPyGrAM quoi d'autre !!!"
+authors = ["walid CHIKHI <waliidchikhi@gmail.com>"]
+homepage = "https://example.com"
+readme = "README.md"
+license = "MIT"
+packages = [{include = "epygram", from = "src"}, 
+	    	{include = "epy_extra", from ="src" }
+		   ]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<4.0"
+footprints = "*"
+bronx = "*"
+numpy = "*"
+pandas = "*"
+cartopy = "0.23.0"
+matplotlib = "3.8.4"
+eccodes = "*" 
+vtk = "*" 
+vortex = "*"
+pillow = "*"
+contourpy= "*"
+h5py = "*"
+#mpl_toolkits = "*"
+netCDF4 = "*"
+pyproj = "*"
+pyresample = "*"
+#pyvgrid = "*"
+scipy = "*"
+six = "*"
+"web.py" = "*"
+taylorism = "*"
+
+
+
+[tool.poetry.scripts]
+# Define the command-line tools
+ddhlfa_plot = "apptools.ddhlfa_plot:main"
+domain_maker = "apptools.domain_maker:main"
+epy_cartoplot = "apptools.epy_cartoplot:main"
+epy_conv = "apptools.epy_conv:main"
+epy_delfield = "apptools.epy_delfield:main"
+epy_doc = "apptools.epy_doc:main"
+epy_hist = "apptools.epy_hist:main"
+epy_movefield = "apptools.epy_movefield:main"
+epy_plot3d = "apptools.epy_plot3d:main"
+epy_point = "apptools.epy_point:main"
+epy_profile = "apptools.epy_profile:main"
+epy_section = "apptools.epy_section:main"
+epy_spectrum = "apptools.epy_spectrum:main"
+epy_stats = "apptools.epy_stats:main"
+epy_what = "apptools.epy_what:main"
+fa_sp2gp = "apptools.fa_sp2gp:main"
+run_epyweb = "apptools.run_epyweb:main"
+what_the_grib = "apptools.what_the_grib:main"
+
+[tool.poetry.plugins."_with.vtk"] 
+export = "epygram._plugins:with_vtk"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+

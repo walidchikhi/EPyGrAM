@@ -20,7 +20,7 @@ import resource
 import numpy as np
 
 from epy_extra import griberies
-import ctypesForFortran
+from epy_extra import ctypesForFortran
 
 _libs4py = "libs4py.so"  # local name in the directory
 
