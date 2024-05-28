@@ -24,7 +24,7 @@ from . import ctypesFF, IN, OUT, treatReturnCode, addReturnCode
 
 
 @treatReturnCode
-@ctypesFF()
+@ctypesFT()
 @addReturnCode
 def w_etrans_inq(KSIZEI, KSIZEJ,
                  KPHYSICALSIZEI, KPHYSICALSIZEJ,
@@ -65,7 +65,7 @@ def w_etrans_inq(KSIZEI, KSIZEJ,
 
 
 @treatReturnCode
-@ctypesFF()
+@ctypesFT()
 @addReturnCode
 def w_trans_inq(KSIZEJ, KTRUNC, KSLOEN, KLOEN, KNUMMAXRESOL):
     """
@@ -96,7 +96,7 @@ def w_trans_inq(KSIZEJ, KTRUNC, KSLOEN, KLOEN, KNUMMAXRESOL):
 
 
 @treatReturnCode
-@ctypesFF()
+@ctypesFT()
 @addReturnCode
 def w_spec2gpt_lam(KSIZEI, KSIZEJ,
                    KPHYSICALSIZEI, KPHYSICALSIZEJ,
@@ -155,7 +155,7 @@ def w_spec2gpt_lam(KSIZEI, KSIZEJ,
 
 
 @treatReturnCode
-@ctypesFF()
+@ctypesFT()
 @addReturnCode
 def w_gpt2spec_lam(KSIZE,
                    KSIZEI, KSIZEJ,
@@ -206,7 +206,7 @@ def w_gpt2spec_lam(KSIZE,
 
 
 @treatReturnCode
-@ctypesFF()
+@ctypesFT()
 @addReturnCode
 def w_spec2gpt_gauss(KSIZEJ,
                      KTRUNC,
@@ -265,7 +265,7 @@ def w_spec2gpt_gauss(KSIZEJ,
 
 
 @treatReturnCode
-@ctypesFF()
+@ctypesFT()
 @addReturnCode
 def w_gpt2spec_gauss(KSPEC,
                      KSIZEJ,
@@ -315,7 +315,7 @@ def w_gpt2spec_gauss(KSPEC,
             None)
 
 
-@ctypesFF()
+@ctypesFT()
 def w_spec2gpt_fft1d(KSIZES, KTRUNC, PSPEC, KSIZEG):
     """
     Transform spectral coefficients into grid-point values,
