@@ -11,7 +11,7 @@ from __future__ import print_function, absolute_import, unicode_literals, divisi
 
 import numpy as np
 
-from . import ctypesFF, IN, OUT, treatReturnCode, addReturnCode
+from . import ctypesFT, IN, OUT, treatReturnCode, addReturnCode
 # Note to developers:
 # Using the ctypesFF decorator, the Python function return a tuple containing:
 #    tup[0]:
