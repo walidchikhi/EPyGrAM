@@ -47,7 +47,9 @@ dependencies=[
         "pyproj",      
         "six",
 	"pyyaml" , # issue with bronx !!
-        "ctypesForFortran < 2.0.0",  # temporary, until complete externalisation of arpifs4py
+        "ctypesForFortran",  # temporary, until complete externalisation of arpifs4py
+        "falfilfa4py",
+	"ectrans4py"
             ]
 [tool.setuptools]
 include-package-data = true
@@ -84,6 +86,7 @@ all = [
         "taylorism",  
         "footprints",
         "bronx",
+	"falfilfa4py",
         "numpy",
         "cartopy",   
         "matplotlib",

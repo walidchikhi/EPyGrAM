@@ -173,10 +173,10 @@ class SpectralGeometry(RecursiveObject):
         call.
         """
         if not hasattr(cls, '_transforms_lib'):
-            from epygram.extra import ialsptrans4py
-            cls._transforms_lib = ialsptrans4py
+            import ectrans4py
+            cls._transforms_lib = ectrans4py 
             if transforms_lib_init_env_kwargs.pop('trigger', False):
-                ialsptrans4py.init_env(**transforms_lib_init_env_kwargs)
+                ectrans4py.init_env(**transforms_lib_init_env_kwargs)
         return cls._transforms_lib
 
     def _prevent_swapping(self):
