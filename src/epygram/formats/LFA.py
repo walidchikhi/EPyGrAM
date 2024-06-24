@@ -14,7 +14,7 @@ import numpy
 import sys
 import six
 
-from epygram.extra.falfilfa4py import LFA as LFA4py
+from falfilfa4py import LFA as LFA4py
 
 import epygram
 from epygram import epygramError, config, util
