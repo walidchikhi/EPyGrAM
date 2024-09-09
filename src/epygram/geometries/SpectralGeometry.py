@@ -174,7 +174,7 @@ class SpectralGeometry(RecursiveObject):
         """
         if not hasattr(cls, '_transforms_lib'):
             import ectrans4py
-            cls._transforms_lib = ectrans4py 
+            cls._transforms_lib = ectrans4py
             if transforms_lib_init_env_kwargs.pop('trigger', False):
                 ectrans4py.init_env(**transforms_lib_init_env_kwargs)
         return cls._transforms_lib
