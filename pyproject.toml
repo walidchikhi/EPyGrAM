@@ -47,7 +47,6 @@ dependencies=[
         "pyproj",      
         "six",
 	"pyyaml" , # issue with bronx !!
-        "ctypesForFortran",  # temporary, until complete externalisation of arpifs4py
         "falfilfa4py",
 	"ectrans4py"
             ]
