@@ -224,7 +224,7 @@ def _create_header_from_geometry(geometry, spectral_geometry=None):
         else:
             spgeom = SpectralGeometry(space='legendre',
                                       truncation={'max':KTRONC})
-            KNOZPA[0:KNLATI // 2] = spgeom.trans_inq(geometry.dimensions)[2][0:KNLATI // 2]
+            KNOZPA[0:KNLATI // 2] = spgeom.trans_inq4py(geometry.dimensions)[2][0:KNLATI // 2]
         PSINLA = numpy.zeros((1 + geometry.dimensions['lat_number']) // 2,
                              dtype=numpy.float64)
         PSINLA[0:KNLATI // 2] = numpy.array([s.get('cos_sin')[1] for s in
@@ -729,14 +729,14 @@ class FA(FileResource):
                 # LAM
                 gpdims = copy.deepcopy(self.geometry.dimensions)
                 gpdims.update({k:v for k, v in self.geometry.grid.items() if 'resolution' in k})
-                SPdatasize = self.spectral_geometry.etrans_inq(gpdims)[1]
+                SPdatasize = self.spectral_geometry.etrans_inq4py(gpdims)[1]
             elif self.spectral_geometry.space == 'legendre':
                 # Global
-                # SPdatasize may be stored to avoid calling trans_inq ?
+                # SPdatasize may be stored to avoid calling trans_inq4py ?
                 SPdatasize = self.spectral_geometry.legendre_known_spectraldata_size()
                 if SPdatasize is None:
-                    # if not, call trans_inq
-                    SPdatasize = self.spectral_geometry.trans_inq(self.geometry.dimensions)[1]
+                    # if not, call trans_inq4py
+                    SPdatasize = self.spectral_geometry.trans_inq4py(self.geometry.dimensions)[1]
                 SPdatasize *= 2  # complex coefficients
             datasize = SPdatasize
             spectral_geometry = self.spectral_geometry
